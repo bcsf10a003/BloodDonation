@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>        
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+
+
+<script>
+
+    
+    function f1()
+    {
+        $("#d1").html("  <div id ='d1' style ='position : absolute ; right : 50px; top :10px'> <img src= '../Content/Images/bloodDrop.jpg'  height='150' width='150'> <form name='register' action='/home/Register' method='post' > <input  style= ' width : 210px ; ' type='text' name='FirstName' class='form-control navbar-btn' placeholder='First Name'> <input  style= ' width : 210px ; ' type='text' name='LastName'class='form-control navbar-btn' placeholder='Last Name'><input  style= ' width : 210px ; 'type='email' name='EMail' class='form-control navbar-btn' placeholder='E-Mail'><input  style= ' width : 210px ; 'type='password' name='Password' class='form-control navbar-btn' placeholder='Password'><input  style= ' width : 210px ; 'type='text' name='BloodGroup' class='form-control navbar-btn' placeholder='BloodGroup'><input  style= ' width : 210px ; 'type='number' name='Contact_' class='form-control navbar-btn' placeholder='Contact No.'><input id ='b1' type='submit' class='btn btn-danger navbar-btn' value = 'Register'></form></div>  ");
+    }
+
+    function f1() {
+        $("#profile").fancybox();
+
+    }
+
+</script>
+
+
+<div id ="d1" style =" position : absolute ; right : 200px; top : 100px">
+
+    
+   
+
+
+
+    <img onclick="f1()"  id="profile" src= "../Content/Images/bloodDrop.jpg" class="fancy"  height="150" width="150">
+    
+    <form method= "post" action= "/home/SignIn">
+
+     <input name="e-mail" style="  width : 210px ; "  type="email" class="form-control navbar-btn" placeholder="User Name">
+    <input name="password" style="  width : 210px ; " type="password" class="form-control navbar-btn" placeholder="Password">
+    
+   <input type= "submit" style   = " width:140px " id ="b4" class="btn btn-danger navbar-btn" value="Sign In">    
+   
+        <select name="type"> 
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+    </select>
+       
+         </form>
+    <form method= "post" action= "../SearchDonor/Index">
+    <input type= "submit" style   = " width:140px " id ="b3" class="btn btn-danger navbar-btn" value="Search Donor">
+    </form>
+    <br/>
+     <a href="#" onclick = "f1()" >Not a registered User?</a>
+    
+     
+</div>
+
+<div id = "d2" style =" position : absolute ; height : 70px ; width : 200px ; left : 200px; top : 100px">
+
+     <img src= "../Content/Images/temp.jpg" height="400" width="500">
+   
+ </div>

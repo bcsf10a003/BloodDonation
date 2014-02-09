@@ -1,0 +1,33 @@
+﻿@model Project.Models.Admin
+
+@{
+    ViewBag.Title = "edit";
+}
+<div id = "d1" style =" position : absolute ; left : 200px; top : 100px">
+
+ <form method="post" action="/admin/changeRecord">
+    <!-- <input name="FirstName" value="@Model.FirstName" placeholder="First Name?"  id="i1" style="  width : 210px ; "  type="text" class="form-control navbar-btn" >
+   --> 
+      @Html.Label("First Name", new { @style="display:block" });
+   
+     @Html.TextBox("FirstName", Model.FirstName, new { @class = "form-control navbar-btn"  ,@placeholder="First Name?" , @id="i1" ,@style="  width : 210px ; "  ,  @type="text"});
+     
+     
+      
+     @Html.Label("Last Name", new { @style="display:block" });
+     @Html.TextBox("LastName", Model.LastName, new { @class = "form-control navbar-btn"  ,@placeholder="Last Name?" , @id="i2" ,@style="  width : 210px ; "  ,  @type="text"});
+
+
+    <!-- <input name="LastName"  value="@Model.LastName" placeholder="Last Name?" id="i2" style="  width : 210px ; " type="text" class="form-control navbar-btn" >
+    -->
+
+     @Html.Label("Password", new { @style="display:block" });
+
+      @Html.TextBoxFor(m=>m.Password ,  new { @class = "form-control navbar-btn"  ,@placeholder="Password"  ,@style="  width : 210px ; "  });
+
+     
+    
+     <input type="submit"  style = " width:140px " id ="b3" class="btn btn-danger navbar-btn" value="Done!"/>
+ </form>
+
+ </div>

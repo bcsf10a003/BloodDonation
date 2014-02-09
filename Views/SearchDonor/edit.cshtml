@@ -1,0 +1,33 @@
+﻿@model Project.Models.User
+
+@{
+    ViewBag.Title = "edit";
+}
+
+
+
+<div id = "d1" style =" position : absolute ; left : 200px; top : 100px">
+
+ <form method="post" action="/SearchDonor/changeRecord">
+    <label style="display:block">First Name</label>
+    <input name="FirstName" value="@Model.FirstName" placeholder="First Name?"  id="i1" style="  width : 210px ; "  type="text" class="form-control navbar-btn" >
+     
+     <label style="display:block">Last Name</label>
+     <input name="LastName"  value="@Model.LastName" placeholder="Last Name?" id="i2" style="  width : 210px ; " type="text" class="form-control navbar-btn" >
+    
+     <label style="display:block">Blood Group</label>
+      <input name="BloodGroup" value="@Model.BloodGroup" placeholder="Blood Group" id="i4" style="  width : 210px ; " type="text" class="form-control navbar-btn" >
+   
+      <label style="display:block">Contact No.</label>
+      <input name="Contact_" value="@Model.Contact_" placeholder="Contact No." id="i5" style="  width : 210px ; "  type="number" class="form-control navbar-btn" >
+    
+     <label style="display:block">Password</label>
+      @Html.TextBoxFor(m=>m.Password ,  new { @class = "form-control navbar-btn"  ,@placeholder="Password"  ,@style="  width : 210px ; "  });
+ 
+     
+  <!--   <input name="Password" value="@Model.Password" placeholder="Password" id="i6" style="  width : 210px ; " type="text" class="form-control navbar-btn" >
+     -->
+     <input type="submit"  style = " width:140px " id ="b3" class="btn btn-danger navbar-btn" value="Done!"/>
+ </form>
+
+ </div>

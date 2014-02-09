@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "deleteUser";
+}
+
+
+<script src="~/Scripts/jquery-1.7.1.js"></script>
+<script>
+ function getUsers()
+ {
+
+     var email = $("#email").val();
+     $.getJSON("/admin/GetDonors?email=" + email, function (data) {
+         $("#table2").html("<tr><th>First Name</th><th>Last Name</th><th>Blood Group</th><th>Contact No.</th></tr>");
+            $.each(data, function (i, item) {
+
+                $("#table2").append("<tr><td>" + item.FirstName + "</td><td>" + item.LastName + "</td><td>" + item.BloodGroup + "</td><td>" + item.Contact_ + "</td></tr>");
+                $("#table2").append( "<a href=/admin/deleteUser?email=" + email +  ">Delete</a>" );
+            })
+         
+        });
+
+        $("d2").append();
+    }
+
+</script>
+
+
+
+<div id ="d1" style =" position : absolute ; left : 230px ; top : 130px">
+     <input id="email" type="email"  name="email" style="  width : 210px ; " type="text" class="form-control navbar-btn" placeholder="E-mail">
+    
+    <a onclick="getUsers()" style=" width: 140px" href ="#" class ="btn btn-danger navbar-btn">Search User</a> 
+    
+  
+    </div>
+  <div id ="d2" style =" position : absolute ; left : 230px ; top : 250px">
+
+    <h1> Search Results </h1>
+    <table id ="table2" style=" width : 800px " class="table table-bordered table-hover">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Blood Group</th>
+            <th>Contact No.</th>
+        </tr>
+
+        
+        
+
+
+    </table>
+
+      <form action="/admin/deleteUser">
+
+      <input type="submit" style=" width: 140px" name="delEmail" class ="btn btn-danger navbar-btn"  value="Delete User" /> 
+    
+          
+      </form>
+</div>

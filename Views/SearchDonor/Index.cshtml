@@ -1,0 +1,96 @@
+﻿
+
+@{
+    ViewBag.Title = "SearchDonor";
+    var currentUser = (Project.Models.User)Session["User"];
+    var profilePic = "";
+    if(currentUser != null)
+    {
+        profilePic = @"..\Files\" + currentUser.E_Mail.Substring(0, currentUser.E_Mail.Length - 4)  + ".jpg";  
+    }
+}
+
+<script src="~/Scripts/jquery-1.7.1.js"></script>
+<script>
+    function getDonor()
+    {
+
+        var blood = $("#i1").val();
+        var city = $("#i2").val();
+       
+
+        
+       $.getJSON("/SearchDonor/GetDonors?blood="+blood, function (data) {
+           $("#table1").html("<tr><th>First Name</th><th>Last Name</th><th>Blood Group</th><th>Contact No.</th></tr>");
+
+              $.each(data, function (i, item) {
+                  alert(blood);
+               $("#table1").append("<tr><td>" + item.FirstName + "</td><td>" + item.LastName + "</td><td>" + item.BloodGroup + "</td><td>" + item.Contact_ + "</td></tr>");
+
+                        })
+
+        });
+
+       // alert("out of json");
+    }
+    </script>
+
+
+
+
+
+@if (currentUser != null)
+{
+    <img src=@profilePic  height=150 width="150"  style =" position : absolute ; left : 30px ; top : 70px"/>
+}
+
+<div id ="d2" style =" position : absolute ; left : 230px ; top : 70px">
+    
+    <form method="post" action="/home/GetDonors">
+    <input name="Blood" id="i1" style="  width : 210px ; "  type="text" class="form-control navbar-btn" placeholder="Blood Group?">
+   <!-- <input name="City" id="i2" style="  width : 210px ; " type="text" class="form-control navbar-btn" placeholder="City?">
+    --><input type="button"  onclick="getDonor()" style = " width:140px " id ="b3" class="btn btn-danger navbar-btn" value="Search Donor"/>
+   </form>
+</div>
+
+
+
+@if (currentUser != null)
+{
+<div id ="d3" style =" position : absolute ; left : 230px ; top : 200px">
+
+    <a style=" width: 140px" href ="/SearchDonor/edit" class ="btn btn-danger navbar-btn">Change Settings</a> 
+
+    <form action="/home/uploadPic" method="post" enctype="multipart/form-data" >
+
+         Upload Image: <input type="file" name="image"/>
+ 
+     
+ 
+        <input type="submit" value="Upload" class="btn btn-danger navbar-btn"/>
+    </form>
+
+     <a style=" width: 140px" href ="/SearchDonor/logout" class ="btn btn-danger navbar-btn">Log Out</a> 
+    
+    </div>
+}
+
+
+<div id ="d1" style =" position : absolute ; left : 230px ; top : 380px">
+
+    <h1> Search Results </h1>
+    <table id="table1" style=" width : 800px " class="table table-bordered table-hover">
+        <tr>
+            <th>First Nameee</th>
+            <th>Last Name</th>
+            <th>Blood Group</th>
+            <th>Contact No.</th>
+        </tr>
+
+        
+        
+
+
+    </table>
+
+</div>
